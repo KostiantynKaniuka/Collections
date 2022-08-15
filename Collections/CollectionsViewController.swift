@@ -18,6 +18,8 @@ class CollectionsViewController: UIViewController {
         mainTableView.dataSource = self
         mainTableView.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: idCell)
     }
+    
+    
 }
 
 extension CollectionsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -43,4 +45,19 @@ extension CollectionsViewController: UITableViewDelegate, UITableViewDataSource 
         }
     }
     
-}
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let segueIdentifier: String
+            switch indexPath.row {
+            case 0:
+                 segueIdentifier = "goToArray"
+            case 1:
+                 segueIdentifier = "showView2"
+            default:
+                 segueIdentifier = "showView3"
+            }
+            self.performSegue(withIdentifier: segueIdentifier, sender: self)
+        }
+            }
+        
+
+
