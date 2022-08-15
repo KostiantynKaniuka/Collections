@@ -5,7 +5,7 @@
 //  Created by Константин Канюка on 15.08.2022.
 //
 
-import Foundation
+ import Foundation
 
 enum OperationState {
     case initial, computing, computed
@@ -23,3 +23,4 @@ class Operation {
         self.perform = performBlock
     }
 }
+// test for pushing 
