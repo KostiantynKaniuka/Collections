@@ -50,7 +50,7 @@ extension CollectionsViewController: UITableViewDelegate, UITableViewDataSource 
         case 0:
             segueIdentifier = "goToArray"
         case 1:
-            segueIdentifier = "showView2"
+            segueIdentifier = "goToSets"
         default:
             segueIdentifier = "showView3"
         }
