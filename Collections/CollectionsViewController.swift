@@ -18,7 +18,6 @@ class CollectionsViewController: UIViewController {
         mainTableView.dataSource = self
         mainTableView.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: idCell)
     }
-    
 }
 
 extension CollectionsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -50,7 +49,7 @@ extension CollectionsViewController: UITableViewDelegate, UITableViewDataSource 
         case 0:
             segueIdentifier = "goToArray"
         case 1:
-            segueIdentifier = "showView2"
+            segueIdentifier = "goToSets"
         default:
             segueIdentifier = "showView3"
         }
