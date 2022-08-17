@@ -18,7 +18,6 @@ class CollectionsViewController: UIViewController {
         mainTableView.dataSource = self
         mainTableView.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: idCell)
     }
-    
 }
 
 extension CollectionsViewController: UITableViewDelegate, UITableViewDataSource {
