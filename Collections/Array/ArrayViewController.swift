@@ -16,7 +16,6 @@ class ArrayViewController: UIViewController {
     @IBOutlet var arrayCreationButton: UIButton!
     @IBOutlet var arrayCollectionView: UICollectionView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         arrayCollectionView.dataSource = self
@@ -31,6 +30,11 @@ class ArrayViewController: UIViewController {
         executionTimeLabel.minimumScaleFactor = 0.5
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
     private func configureWhenArrayCreated(withOutput output: String?) -> Void {
         self.arrayActivityIndicator.stopAnimating()
         self.arrayActivityIndicator.isHidden = true
@@ -38,7 +42,6 @@ class ArrayViewController: UIViewController {
         self.executionTimeLabel.text = "Array creation " + (output ?? "")
         self.arrayCollectionView.isHidden = false
     }
-    
     
     @IBAction func arrayCreationButtonTapped(_ sender: Any) {
         self.arrayCreationButton.isHidden = true
@@ -64,15 +67,11 @@ extension ArrayViewController: UICollectionViewDelegate, UICollectionViewDataSou
         return cell
     }
     
-    
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let operation = arrayOperations.operationAtIndex(indexPath.row)
-        arrayOperations.perform(operation: operation,
-                                launchedComputing: {
+        arrayOperations.perform(operation: operation,launchedComputing: {
             self.arrayCollectionView.reloadData()
-        },
-                                completion: {
+        }, completion: {
             self.arrayCollectionView.reloadData()
         })
     }

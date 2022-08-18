@@ -14,7 +14,7 @@ class SetViewController: UIViewController {
     @IBOutlet var notMatchingLettersLabel: UILabel!
     @IBOutlet var uniqueCharactersButton: UIButton!
     @IBOutlet var uniqueCharactersLabel: UILabel!
-    var model = SetModel()
+    private var model = SetModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +24,11 @@ class SetViewController: UIViewController {
         uniqueCharactersLabel.isHidden = true
         firstTextField.delegate = self
         secondTextField.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     @IBAction func allMatchingLettersButtonTapped(_ sender: Any) {

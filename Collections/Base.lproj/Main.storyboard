@@ -36,6 +36,7 @@
                         <outlet property="mainTableView" destination="Sbv-UR-ZSB" id="WDT-eZ-0vZ"/>
                         <segue destination="gYg-P9-zXo" kind="show" identifier="goToArray" id="AcU-24-wvX"/>
                         <segue destination="LY6-gh-cfg" kind="show" identifier="goToSets" id="0na-S8-LbV"/>
+                        <segue destination="nan-A2-YHO" kind="show" identifier="goToDictionary" id="TIJ-Ye-W12"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -45,8 +46,8 @@
         <!--Set View Controller-->
         <scene sceneID="Eo3-aR-ead">
             <objects>
-                <viewController id="LY6-gh-cfg" userLabel="Set View Controller" customClass="SetViewController" customModule="Collections" customModuleProvider="target" propertyAccessControl="all" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="act-Ia-lsU" propertyAccessControl="all">
+                <viewController id="LY6-gh-cfg" userLabel="Set View Controller" customClass="SetViewController" customModule="Collections" customModuleProvider="target" propertyAccessControl="none" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="act-Ia-lsU" propertyAccessControl="none">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -180,7 +181,7 @@
                             <constraint firstItem="1a1-OY-QCw" firstAttribute="top" secondItem="shj-5w-ETL" secondAttribute="bottom" constant="8" symbolic="YES" id="yaS-FP-yCt" propertyAccessControl="all"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="R6m-8e-6Lc" propertyAccessControl="all"/>
+                    <navigationItem key="navigationItem" id="R6m-8e-6Lc" propertyAccessControl="none"/>
                     <connections>
                         <outlet property="firstTextField" destination="s4d-R5-wcd" id="vfd-KT-RvC"/>
                         <outlet property="matchingLettersLabel" destination="Gux-j1-Jx2" id="YqX-Nf-fYc"/>
@@ -190,9 +191,119 @@
                         <outlet property="uniqueCharactersLabel" destination="1a1-OY-QCw" id="CNx-o1-FZB"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LUY-Zl-gAm" userLabel="First Responder" customClass="UIResponder" propertyAccessControl="all" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LUY-Zl-gAm" userLabel="First Responder" customClass="UIResponder" propertyAccessControl="none" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2594.202898550725" y="-147.32142857142856"/>
+            <point key="canvasLocation" x="3381" y="-147"/>
+        </scene>
+        <!--Dictionaty View Controller-->
+        <scene sceneID="zY4-Y0-lOb">
+            <objects>
+                <viewController id="nan-A2-YHO" userLabel="Dictionaty View Controller" customClass="DictionaryViewController" customModule="Collections" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Pg-TR-8Lz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="HmS-os-5Ya">
+                                <rect key="frame" x="0.0" y="79" width="414" height="737"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Array" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vjA-TC-dww">
+                                <rect key="frame" x="20" y="96" width="41" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="41" id="6XM-6Y-y4R"/>
+                                    <constraint firstAttribute="height" constant="21" id="Hbj-i2-3qj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dictionary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxY-BK-feU">
+                                <rect key="frame" x="316" y="96" width="78" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="78" id="9FG-hP-mCB"/>
+                                    <constraint firstAttribute="height" constant="21" id="OF7-Aq-O3S"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cIF-oW-gQK">
+                                <rect key="frame" x="0.0" y="125" width="414" height="737"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZHw-74-JDR">
+                                    <size key="itemSize" width="150" height="200"/>
+                                    <size key="estimatedItemSize" width="150" height="150"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dictionaryOptionCell" id="zvv-yr-aR0" customClass="DictionaryCollectionViewCell" customModule="Collections" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="mNQ-ro-2qX">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="7eD-Aq-5iT">
+                                                    <rect key="frame" x="59" y="61" width="32" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="28" id="2pV-2j-vNK"/>
+                                                        <constraint firstAttribute="width" constant="32" id="KPP-2p-K7U"/>
+                                                    </constraints>
+                                                </activityIndicatorView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mgo-9R-nUN">
+                                                    <rect key="frame" x="8.6666666666666714" y="4" width="133" height="142"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="133" id="nSu-pf-D1k"/>
+                                                        <constraint firstAttribute="height" constant="142" id="zaA-Ve-VUf"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Mgo-9R-nUN" firstAttribute="centerX" secondItem="mNQ-ro-2qX" secondAttribute="centerX" id="GzI-Bb-JL1"/>
+                                                <constraint firstItem="7eD-Aq-5iT" firstAttribute="centerY" secondItem="mNQ-ro-2qX" secondAttribute="centerY" id="O3z-Du-995"/>
+                                                <constraint firstItem="7eD-Aq-5iT" firstAttribute="centerX" secondItem="mNQ-ro-2qX" secondAttribute="centerX" id="cmn-b7-CLA"/>
+                                                <constraint firstItem="Mgo-9R-nUN" firstAttribute="centerY" secondItem="mNQ-ro-2qX" secondAttribute="centerY" id="kZ9-cR-AOa"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="150" height="150"/>
+                                        <connections>
+                                            <outlet property="dictionaryActivityIndicator" destination="7eD-Aq-5iT" id="EOc-qO-eKE"/>
+                                            <outlet property="dictionaryCellLabel" destination="Mgo-9R-nUN" id="9eX-Bk-ElC"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Xrg-2j-PBw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Xrg-2j-PBw" firstAttribute="trailing" secondItem="hxY-BK-feU" secondAttribute="trailing" constant="20" id="1zM-O9-Won"/>
+                            <constraint firstItem="hxY-BK-feU" firstAttribute="top" secondItem="Xrg-2j-PBw" secondAttribute="top" constant="8" id="2Ot-yC-yMe"/>
+                            <constraint firstItem="hxY-BK-feU" firstAttribute="leading" secondItem="vjA-TC-dww" secondAttribute="trailing" constant="255" id="Bl7-5B-1ue"/>
+                            <constraint firstItem="vjA-TC-dww" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Xrg-2j-PBw" secondAttribute="leading" id="CvF-sc-HRk"/>
+                            <constraint firstItem="cIF-oW-gQK" firstAttribute="top" secondItem="vjA-TC-dww" secondAttribute="bottom" constant="8" symbolic="YES" id="IeM-0T-CsE"/>
+                            <constraint firstItem="vjA-TC-dww" firstAttribute="top" secondItem="Xrg-2j-PBw" secondAttribute="top" constant="8" id="XcH-4s-2VC"/>
+                            <constraint firstItem="cIF-oW-gQK" firstAttribute="leading" secondItem="Xrg-2j-PBw" secondAttribute="leading" id="qXw-8h-SFV"/>
+                            <constraint firstItem="cIF-oW-gQK" firstAttribute="bottom" secondItem="Xrg-2j-PBw" secondAttribute="bottom" id="uv2-h9-75D"/>
+                            <constraint firstItem="cIF-oW-gQK" firstAttribute="trailing" secondItem="Xrg-2j-PBw" secondAttribute="trailing" id="y7r-Qh-KWW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="a7I-nX-8Up"/>
+                    <connections>
+                        <outlet property="arrayLabel" destination="vjA-TC-dww" id="LNn-7r-WBW"/>
+                        <outlet property="dictionaryCollectionView" destination="cIF-oW-gQK" id="fNd-wz-UHG"/>
+                        <outlet property="dictionaryLabel" destination="hxY-BK-feU" id="pfV-Dt-JbY"/>
+                        <outlet property="mediumActivityIndicator" destination="HmS-os-5Ya" id="0DS-C0-CRH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sUB-AZ-qOK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2548" y="373"/>
         </scene>
         <!--Array View Controller-->
         <scene sceneID="Upr-n1-1Mo">
@@ -317,7 +428,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E9d-fU-is7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2597" y="-894"/>
+            <point key="canvasLocation" x="2548" y="-629"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b2M-Bs-eYI">

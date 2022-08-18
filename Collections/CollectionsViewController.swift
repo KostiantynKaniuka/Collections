@@ -17,7 +17,14 @@ class CollectionsViewController: UIViewController {
         mainTableView.delegate = self
         mainTableView.dataSource = self
         mainTableView.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: idCell)
+        self.navigationController?.navigationBar.isHidden = true
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+
 }
 
 extension CollectionsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -51,7 +58,7 @@ extension CollectionsViewController: UITableViewDelegate, UITableViewDataSource 
         case 1:
             segueIdentifier = "goToSets"
         default:
-            segueIdentifier = "showView3"
+            segueIdentifier = "goToDictionary"
         }
         self.performSegue(withIdentifier: segueIdentifier, sender: self)
     }

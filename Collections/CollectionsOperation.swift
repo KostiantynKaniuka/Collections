@@ -12,6 +12,7 @@ class CollectionOperations {
         guard operation.state == .initial else {
             return
         }
+        
         operation.state = .computing
         launchedComputing?()
         DispatchQueue.global().async {
