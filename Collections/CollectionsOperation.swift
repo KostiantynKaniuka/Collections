@@ -3,7 +3,7 @@
 //  Collections
 //
 //  Created by Константин Канюка on 15.08.2022.
-//
+// 
 
 import Foundation
 
