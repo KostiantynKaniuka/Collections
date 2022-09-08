@@ -11,7 +11,7 @@ struct ArrayManipulator {
     
     var originArray = [Int]()
     
-    //MARK:- Default values
+    //MARK: - Default values
     let oneThousandElements = (0..<1000).map{ _ in Int.random(in: 1 ... 100) }
     var resultOfInsertionAtTheBeginningOneByOne = 0
     var resultOfInsertionAtTheBeginningAtOnce = 0
@@ -26,7 +26,7 @@ struct ArrayManipulator {
     var resultOfRemovingAtTheEndOneByOne = 0
     var resultOfRemovingAtTheEndAtOnce = 0
     
-    //MARK:- Manipulations with array
+    //MARK: - Manipulations with array
     mutating func arrayCreating() {
         originArray = (0..<10000000).map{ _ in Int.random(in: 1 ... 100) }
     }

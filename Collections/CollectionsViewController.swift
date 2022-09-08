@@ -2,40 +2,46 @@
 //  ViewController.swift
 //  Collections
 //
-//  Created by Константин Канюка on 08.08.2022.
+//  Created by Kostiantyn Kaniuka on 08.08.2022.
 //
 
 import UIKit
 
-class CollectionsViewController: UIViewController {
-    @IBOutlet var mainTableView: UITableView!
-    let idCell = "mailCell"
-    var frontText: [String] = ["Array","Set","Dictionaries"]
+final class CollectionsViewController: UIViewController {
+    //MARK: - Outlets
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        mainTableView.delegate = self
-        mainTableView.dataSource = self
-        mainTableView.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: idCell)
-        self.navigationController?.navigationBar.isHidden = true
+    @IBOutlet private var mainTableView: UITableView! {
+        didSet {
+            mainTableView.alwaysBounceVertical = false
+            mainTableView.delegate = self
+            mainTableView.dataSource = self
+            mainTableView.register(UINib(nibName: "MainTableViewCell", bundle: nil),
+            forCellReuseIdentifier: idCell)
+        }
     }
+    
+    //MARK: - Properties
+    
+    private let idCell = "mailCell"
+    private let colletionsNames: [String] = ["Array", "Set", "Dictionaries"]
+    
+    //MARK: - Lifecycle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
-
 }
 
 extension CollectionsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return frontText.count
+        return colletionsNames.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: idCell) as! MainTableViewCell
-        cell.cellLabel.text = frontText[indexPath.row]
-        return cell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: idCell, for: indexPath) as? FrontTableViewCell else { return UITableViewCell() }
+        cell.setUpLabelText(usersTypeText: colletionsNames[indexPath.row])
+        return cell 
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

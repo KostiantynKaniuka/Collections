@@ -25,7 +25,7 @@ class CollectionOperations {
                 operation.state = .computed
                 operation.output = resultString
                 completion?()
-            }
+            } 
         }
     }
 }
