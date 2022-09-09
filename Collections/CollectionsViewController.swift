@@ -23,8 +23,8 @@ final class CollectionsViewController: UIViewController {
     //MARK: - Properties
     
     private let idCell = "mainCell"
-    private let colletionsCellsNames: [String] = ["Array", "Set", "Dictionaries"]
-    
+    private let colletionsCellsNames: [String] = ["Array", "Set", "Dictionary"]
+  
     //MARK: - Lifecycle
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,18 +46,39 @@ extension CollectionsViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let segueIdentifier: String
-        switch indexPath.row {
-        case 0:
-            segueIdentifier = "goToArray"
-        case 1:
-            segueIdentifier = "goToSets"
-        default:
-            segueIdentifier = "goToDictionary"
-        }
+        var segueIdentifier: String = ""
+            if indexPath.row == 0 {
+                segueType = .array
+                segueIdentifier = getSegue()
+            } else if indexPath.row == 1 {
+                segueType = .set
+                segueIdentifier = getSegue()
+            } else if indexPath.row == 2 {
+                segueType = .dictionary
+                segueIdentifier = getSegue()
+            }
         self.performSegue(withIdentifier: segueIdentifier, sender: self)
     }
 }
+ 
+//MARK: - SegueSettings
 
+enum CollectionSegue {
+    case array
+    case set
+    case dictionary
+}
 
+private var segueType: CollectionSegue = .set
+
+private func getSegue() -> String {
+    switch segueType {
+    case .array:
+       return "goToArray"
+    case .set:
+        return "goToSets"
+    case .dictionary:
+        return "goToDictionary"
+    }
+}
 

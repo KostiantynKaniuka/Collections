@@ -39,7 +39,7 @@ class DictionaryCollectionViewCell: UICollectionViewCell {
         }
     }
 }
-    
+
     
     
 

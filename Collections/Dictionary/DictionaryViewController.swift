@@ -72,11 +72,11 @@ final class DictionaryViewController: UIViewController {
 extension DictionaryViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        dictionaryOperations.operationsCount
+        return dictionaryOperations.operationsCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: dictionaryCellIdentifier, for: indexPath) as! DictionaryCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: dictionaryCellIdentifier, for: indexPath) as? DictionaryCollectionViewCell else { return UICollectionViewCell() }
         let operation = dictionaryOperations.operationAtIndex(indexPath.row)
         cell.backgroundColor = UIColor.lightGray
         cell.layer.borderColor = UIColor.white.cgColor
