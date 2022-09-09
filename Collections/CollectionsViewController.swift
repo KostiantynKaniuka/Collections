@@ -15,15 +15,15 @@ final class CollectionsViewController: UIViewController {
             mainTableView.alwaysBounceVertical = false
             mainTableView.delegate = self
             mainTableView.dataSource = self
-            mainTableView.register(UINib(nibName: "MainTableViewCell", bundle: nil),
+            mainTableView.register(UINib(nibName: "FrontTableViewCell", bundle: nil),
             forCellReuseIdentifier: idCell)
         }
     }
     
     //MARK: - Properties
     
-    private let idCell = "mailCell"
-    private let colletionsNames: [String] = ["Array", "Set", "Dictionaries"]
+    private let idCell = "mainCell"
+    private let colletionsCellsNames: [String] = ["Array", "Set", "Dictionaries"]
     
     //MARK: - Lifecycle
     
@@ -35,25 +35,14 @@ final class CollectionsViewController: UIViewController {
 
 extension CollectionsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return colletionsNames.count
+        return colletionsCellsNames.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: idCell, for: indexPath) as? FrontTableViewCell else { return UITableViewCell() }
-        cell.setUpLabelText(usersTypeText: colletionsNames[indexPath.row])
+        cell.setUpLabelText(usersTypeText: colletionsCellsNames[indexPath.row])
+        cell.selectionStyle = .none
         return cell 
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Collections"
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        if let header = view as? UITableViewHeaderFooterView {
-            header.textLabel?.textColor = .black
-            header.textLabel?.font = UIFont.boldSystemFont(ofSize: 30)
-            header.sizeToFit()
-        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

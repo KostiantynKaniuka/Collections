@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E703F0B328CA5D9900F3184E /* FrontTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E703F0B128CA5D9900F3184E /* FrontTableViewCell.swift */; };
-		E703F0B428CA5D9900F3184E /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E703F0B228CA5D9900F3184E /* MainTableViewCell.xib */; };
+		E71EA94928CA629800CF13E8 /* FrontTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E71EA94B28CA629800CF13E8 /* FrontTableViewCell.xib */; };
 		E740EF7828A14DB4009A6339 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E740EF7728A14DB4009A6339 /* AppDelegate.swift */; };
 		E740EF7A28A14DB4009A6339 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E740EF7928A14DB4009A6339 /* SceneDelegate.swift */; };
 		E740EF7C28A14DB4009A6339 /* CollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E740EF7B28A14DB4009A6339 /* CollectionsViewController.swift */; };
@@ -31,7 +31,7 @@
 
 /* Begin PBXFileReference section */
 		E703F0B128CA5D9900F3184E /* FrontTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontTableViewCell.swift; sourceTree = "<group>"; };
-		E703F0B228CA5D9900F3184E /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
+		E71EA94A28CA629800CF13E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FrontTableViewCell.xib; sourceTree = "<group>"; };
 		E740EF7428A14DB4009A6339 /* Collections.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Collections.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E740EF7728A14DB4009A6339 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E740EF7928A14DB4009A6339 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				E703F0B128CA5D9900F3184E /* FrontTableViewCell.swift */,
-				E703F0B228CA5D9900F3184E /* MainTableViewCell.xib */,
+				E71EA94B28CA629800CF13E8 /* FrontTableViewCell.xib */,
 				E740EF7628A14DB4009A6339 /* Collections */,
 				E740EF7528A14DB4009A6339 /* Products */,
 			);
@@ -194,7 +194,7 @@
 				E740EF8428A14DB4009A6339 /* LaunchScreen.storyboard in Resources */,
 				E740EF8128A14DB4009A6339 /* Assets.xcassets in Resources */,
 				E740EF7F28A14DB4009A6339 /* Main.storyboard in Resources */,
-				E703F0B428CA5D9900F3184E /* MainTableViewCell.xib in Resources */,
+				E71EA94928CA629800CF13E8 /* FrontTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +227,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		E71EA94B28CA629800CF13E8 /* FrontTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E71EA94A28CA629800CF13E8 /* Base */,
+			);
+			name = FrontTableViewCell.xib;
+			sourceTree = "<group>";
+		};
 		E740EF7D28A14DB4009A6339 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
