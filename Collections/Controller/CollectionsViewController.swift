@@ -16,7 +16,7 @@ final class CollectionsViewController: UIViewController {
             mainTableView.delegate = self
             mainTableView.dataSource = self
             mainTableView.register(UINib(nibName: "FrontTableViewCell", bundle: nil),
-            forCellReuseIdentifier: idCell)
+                                   forCellReuseIdentifier: idCell)
         }
     }
     
@@ -24,16 +24,33 @@ final class CollectionsViewController: UIViewController {
     
     private let idCell = "mainCell"
     private let colletionsCellsNames: [String] = ["Array", "Set", "Dictionary"]
-  
+    private var segueType: NavigationSettings = .set
+    
     //MARK: - Lifecycle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
+    
+    //MARK: - Method
+    
+    private func getSegue() -> String {
+        switch segueType {
+        case .array:
+            return "goToArray"
+        case .set:
+            return "goToSets"
+        case .dictionary:
+            return "goToDictionary"
+        }
+    }
 }
 
-extension CollectionsViewController: UITableViewDelegate, UITableViewDataSource {
+//MARK: - TableViewDataSource
+
+extension CollectionsViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return colletionsCellsNames.count
     }
@@ -42,43 +59,28 @@ extension CollectionsViewController: UITableViewDelegate, UITableViewDataSource 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: idCell, for: indexPath) as? FrontTableViewCell else { return UITableViewCell() }
         cell.setUpLabelText(usersTypeText: colletionsCellsNames[indexPath.row])
         cell.selectionStyle = .none
-        return cell 
+        return cell
     }
+}
+
+//MARK: - TableViewDeligate
+extension CollectionsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var segueIdentifier: String = ""
-            if indexPath.row == 0 {
-                segueType = .array
-                segueIdentifier = getSegue()
-            } else if indexPath.row == 1 {
-                segueType = .set
-                segueIdentifier = getSegue()
-            } else if indexPath.row == 2 {
-                segueType = .dictionary
-                segueIdentifier = getSegue()
-            }
+        if indexPath.row == 0 {
+            segueType = .array
+            segueIdentifier = getSegue()
+        } else if indexPath.row == 1 {
+            segueType = .set
+            segueIdentifier = getSegue()
+        } else if indexPath.row == 2 {
+            segueType = .dictionary
+            segueIdentifier = getSegue()
+        }
         self.performSegue(withIdentifier: segueIdentifier, sender: self)
     }
 }
- 
-//MARK: - SegueSettings
 
-enum CollectionSegue {
-    case array
-    case set
-    case dictionary
-}
 
-private var segueType: CollectionSegue = .set
-
-private func getSegue() -> String {
-    switch segueType {
-    case .array:
-       return "goToArray"
-    case .set:
-        return "goToSets"
-    case .dictionary:
-        return "goToDictionary"
-    }
-}
 
