@@ -12,5 +12,3 @@ enum NavigationSettings {
     case set
     case dictionary
 }
-
-

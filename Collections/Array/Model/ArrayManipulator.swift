@@ -2,7 +2,7 @@
 //  ArrayManipulator.swift
 //  Collections
 //
-//  Created by Константин Канюка on 15.08.2022.
+//  Created by Kostiantyn Kaniuka on 15.08.2022.
 //
 
 import Foundation

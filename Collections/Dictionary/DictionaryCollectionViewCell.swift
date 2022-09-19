@@ -19,7 +19,7 @@ class DictionaryCollectionViewCell: UICollectionViewCell {
         dictionaryActivityIndicator.isHidden = true
     }
     
-    func configure(withOperation operation: Operation) {
+    func configure(withOperation operation: CellsFilling) {
         switch operation.state {
         case .initial:
             dictionaryCellLabel.isHidden = false

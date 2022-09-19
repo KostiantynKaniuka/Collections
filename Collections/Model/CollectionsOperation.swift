@@ -8,11 +8,9 @@
 import Foundation
 
 class CollectionOperations {
-    func perform(operation: Operation, launchedComputing: (() -> Void)? = nil, completion: (() -> Void)? = nil) {
-        guard operation.state == .initial else {
-            return
-        }
-        
+    
+    func perform(operation: CellsFilling, launchedComputing: (() -> Void)? = nil, completion: (() -> Void)? = nil) {
+        guard operation.state == .initial else { return }
         operation.state = .computing
         launchedComputing?()
         DispatchQueue.global().async {
@@ -25,7 +23,7 @@ class CollectionOperations {
                 operation.state = .computed
                 operation.output = resultString
                 completion?()
-            } 
+            }
         }
     }
 }

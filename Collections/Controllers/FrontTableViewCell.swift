@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FrontTableViewCell: UITableViewCell {
+final class FrontTableViewCell: UITableViewCell {
     @IBOutlet private var cellLabel: UILabel!
     
     func setUpLabelText(usersTypeText: String) {

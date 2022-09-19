@@ -21,8 +21,9 @@
 		E76595E328AE8992006060A7 /* DictionaryManipulator .swift in Sources */ = {isa = PBXBuildFile; fileRef = E76595E228AE8992006060A7 /* DictionaryManipulator .swift */; };
 		E768F7DF28AA96F00030F96E /* ArrayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E768F7DE28AA96F00030F96E /* ArrayCollectionViewCell.swift */; };
 		E76F03BE28CF29060050D357 /* NavigationSettings .swift in Sources */ = {isa = PBXBuildFile; fileRef = E76F03BD28CF29060050D357 /* NavigationSettings .swift */; };
+		E7D0FAE628CF3733007EDDCD /* CellsFilling.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0FAE528CF3733007EDDCD /* CellsFilling.swift */; };
 		E7F5F86728AA6D0700E0E1DA /* ArrayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5F86628AA6D0700E0E1DA /* ArrayViewController.swift */; };
-		E7F5F86928AA85DE00E0E1DA /* OperationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5F86828AA85DE00E0E1DA /* OperationState.swift */; };
+		E7F5F86928AA85DE00E0E1DA /* OperationStateSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5F86828AA85DE00E0E1DA /* OperationStateSettings.swift */; };
 		E7F5F86B28AA863400E0E1DA /* CollectionsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5F86A28AA863400E0E1DA /* CollectionsOperation.swift */; };
 		E7F5F86E28AA8C7700E0E1DA /* ArrayManipulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5F86D28AA8C7700E0E1DA /* ArrayManipulator.swift */; };
 		E7F5F87028AA8F0000E0E1DA /* ArrayOperations .swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5F86F28AA8F0000E0E1DA /* ArrayOperations .swift */; };
@@ -47,8 +48,9 @@
 		E76595E228AE8992006060A7 /* DictionaryManipulator .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DictionaryManipulator .swift"; sourceTree = "<group>"; };
 		E768F7DE28AA96F00030F96E /* ArrayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayCollectionViewCell.swift; sourceTree = "<group>"; };
 		E76F03BD28CF29060050D357 /* NavigationSettings .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationSettings .swift"; sourceTree = "<group>"; };
+		E7D0FAE528CF3733007EDDCD /* CellsFilling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellsFilling.swift; sourceTree = "<group>"; };
 		E7F5F86628AA6D0700E0E1DA /* ArrayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayViewController.swift; sourceTree = "<group>"; };
-		E7F5F86828AA85DE00E0E1DA /* OperationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationState.swift; sourceTree = "<group>"; };
+		E7F5F86828AA85DE00E0E1DA /* OperationStateSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationStateSettings.swift; sourceTree = "<group>"; };
 		E7F5F86A28AA863400E0E1DA /* CollectionsOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsOperation.swift; sourceTree = "<group>"; };
 		E7F5F86D28AA8C7700E0E1DA /* ArrayManipulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayManipulator.swift; sourceTree = "<group>"; };
 		E7F5F86F28AA8F0000E0E1DA /* ArrayOperations .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArrayOperations .swift"; sourceTree = "<group>"; };
@@ -87,12 +89,12 @@
 			isa = PBXGroup;
 			children = (
 				E76F03BF28CF2AEB0050D357 /* AppsDelegate  */,
-				E76F03C028CF2B090050D357 /* Controller */,
 				E76F03C228CF2BEC0050D357 /* Model */,
+				E76F03C128CF2BC10050D357 /* View */,
+				E76F03C028CF2B090050D357 /* Controllers */,
 				E7F5F86C28AA867100E0E1DA /* Array */,
 				E7FB84A228AE5A1D00BEE459 /* Dictionary */,
 				E7606FAA28ACF19900076E16 /* Set */,
-				E76F03C128CF2BC10050D357 /* View */,
 				E740EF8528A14DB4009A6339 /* Info.plist */,
 			);
 			path = Collections;
@@ -116,13 +118,13 @@
 			path = "AppsDelegate ";
 			sourceTree = "<group>";
 		};
-		E76F03C028CF2B090050D357 /* Controller */ = {
+		E76F03C028CF2B090050D357 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				E740EF7B28A14DB4009A6339 /* CollectionsViewController.swift */,
 				E703F0B128CA5D9900F3184E /* FrontTableViewCell.swift */,
 			);
-			path = Controller;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		E76F03C128CF2BC10050D357 /* View */ = {
@@ -140,8 +142,34 @@
 			isa = PBXGroup;
 			children = (
 				E76F03BD28CF29060050D357 /* NavigationSettings .swift */,
-				E7F5F86828AA85DE00E0E1DA /* OperationState.swift */,
+				E7F5F86828AA85DE00E0E1DA /* OperationStateSettings.swift */,
 				E7F5F86A28AA863400E0E1DA /* CollectionsOperation.swift */,
+				E7D0FAE528CF3733007EDDCD /* CellsFilling.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E7D0FAE728CF3A2B007EDDCD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E7F5F86628AA6D0700E0E1DA /* ArrayViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E7D0FAE828CF3A49007EDDCD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E768F7DE28AA96F00030F96E /* ArrayCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E7D0FAE928CF3A56007EDDCD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E7F5F86D28AA8C7700E0E1DA /* ArrayManipulator.swift */,
+				E7F5F86F28AA8F0000E0E1DA /* ArrayOperations .swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -149,10 +177,9 @@
 		E7F5F86C28AA867100E0E1DA /* Array */ = {
 			isa = PBXGroup;
 			children = (
-				E7F5F86628AA6D0700E0E1DA /* ArrayViewController.swift */,
-				E7F5F86D28AA8C7700E0E1DA /* ArrayManipulator.swift */,
-				E7F5F86F28AA8F0000E0E1DA /* ArrayOperations .swift */,
-				E768F7DE28AA96F00030F96E /* ArrayCollectionViewCell.swift */,
+				E7D0FAE928CF3A56007EDDCD /* Model */,
+				E7D0FAE828CF3A49007EDDCD /* View */,
+				E7D0FAE728CF3A2B007EDDCD /* Controller */,
 			);
 			path = Array;
 			sourceTree = "<group>";
@@ -241,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7F5F87028AA8F0000E0E1DA /* ArrayOperations .swift in Sources */,
+				E7D0FAE628CF3733007EDDCD /* CellsFilling.swift in Sources */,
 				E7F5F86728AA6D0700E0E1DA /* ArrayViewController.swift in Sources */,
 				E740EF7C28A14DB4009A6339 /* CollectionsViewController.swift in Sources */,
 				E740EF7828A14DB4009A6339 /* AppDelegate.swift in Sources */,
@@ -254,7 +282,7 @@
 				E7FB84A428AE80E400BEE459 /* DictionaryCollectionViewCell.swift in Sources */,
 				E740EF7A28A14DB4009A6339 /* SceneDelegate.swift in Sources */,
 				E7606FAC28ACF85A00076E16 /* SetModel.swift in Sources */,
-				E7F5F86928AA85DE00E0E1DA /* OperationState.swift in Sources */,
+				E7F5F86928AA85DE00E0E1DA /* OperationStateSettings.swift in Sources */,
 				E76F03BE28CF29060050D357 /* NavigationSettings .swift in Sources */,
 				E703F0B328CA5D9900F3184E /* FrontTableViewCell.swift in Sources */,
 			);

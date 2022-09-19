@@ -21,11 +21,11 @@ class DictionaryOperations: CollectionOperations {
     
     private var dictionaryManipulator = DictionaryManipulator()
     
-    lazy var contactArrayGeneration: Operation = { Operation(name: "Generate contact array", performBlock: { self.dictionaryManipulator.contactArrayGenerator() }) }()
+    lazy var contactArrayGeneration: CellsFilling = { CellsFilling(name: "Generate contact array", performBlock: { self.dictionaryManipulator.contactArrayGenerator() }) }()
     
-    lazy var contactDictionaryGeneration: Operation = { Operation(name: "Generate dictionary array", performBlock: { self.dictionaryManipulator.contactDictionaryGenetor() }) }()
+    lazy var contactDictionaryGeneration: CellsFilling = { CellsFilling(name: "Generate dictionary array", performBlock: { self.dictionaryManipulator.contactDictionaryGenetor() }) }()
     
-    private lazy var operations: [Operation] = {
+    private lazy var operations: [CellsFilling] = {
         let operationsNamesAndBlocks: [Int: (String, () -> Void)] = [
             0: ("Find the first contact arr",
                 { self.dictionaryManipulator.findTheFirstContactArray() }
@@ -36,12 +36,12 @@ class DictionaryOperations: CollectionOperations {
             4: ("Search for a non-existing element arr", { self.dictionaryManipulator.searchForANonExistingElementArray() }),
             5: ("Search for a non-existing element dict", { self.dictionaryManipulator.searchForANonExistingElementDictionary() })]
         
-        var operationsList: [Operation] = []
+        var operationsList: [CellsFilling] = []
         var operationName: String?
         var operationBlock: (() -> Void)?
         for operationIndex in 0..<operationsNamesAndBlocks.count {
             (operationName, operationBlock) = operationsNamesAndBlocks[operationIndex]!
-            let operation = Operation(id: operationIndex, name: operationName!, performBlock: operationBlock!)
+            let operation = CellsFilling(id: operationIndex, name: operationName!, performBlock: operationBlock!)
             operationsList.append(operation)
         }
         return operationsList
@@ -51,7 +51,7 @@ class DictionaryOperations: CollectionOperations {
         operations.count
     }()
     
-    func operationAtIndex(_ index: Int) -> Operation {
+    func operationAtIndex(_ index: Int) -> CellsFilling {
         operations[index]
     }
 }

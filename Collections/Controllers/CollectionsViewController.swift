@@ -81,6 +81,3 @@ extension CollectionsViewController: UITableViewDelegate {
         self.performSegue(withIdentifier: segueIdentifier, sender: self)
     }
 }
-
-
-
