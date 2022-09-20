@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  Collections
 //
-//  Created by Константин Канюка on 08.08.2022.
+//  Created by Kostiantyn Kaniuka on 08.08.2022.
 //
 
 import UIKit

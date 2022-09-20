@@ -8,6 +8,12 @@
 import UIKit
 
 final class CollectionsViewController: UIViewController {
+    //MARK: - Properties
+    
+    private let idCell = "mainCell"
+    private let colletionsCellsNames: [String] = ["Array", "Set", "Dictionary"]
+    private var segueType: NavigationSettings = .set
+    
     //MARK: - Outlets
     
     @IBOutlet private var mainTableView: UITableView! {
@@ -19,12 +25,6 @@ final class CollectionsViewController: UIViewController {
                                    forCellReuseIdentifier: idCell)
         }
     }
-    
-    //MARK: - Properties
-    
-    private let idCell = "mainCell"
-    private let colletionsCellsNames: [String] = ["Array", "Set", "Dictionary"]
-    private var segueType: NavigationSettings = .set
     
     //MARK: - Lifecycle
     

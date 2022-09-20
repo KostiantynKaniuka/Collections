@@ -8,33 +8,37 @@
 import UIKit
 
 class ArrayCollectionViewCell: UICollectionViewCell {
-    @IBOutlet var arrayCollectionCellLabel: UILabel!
-    @IBOutlet var arrayCollectionViewCellIndicator: UIActivityIndicatorView!
+    @IBOutlet var CellLabel: UILabel!
+    @IBOutlet var CellActivityIndicator: UIActivityIndicatorView!
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        arrayCollectionCellLabel.isHidden = false
-        arrayCollectionViewCellIndicator.stopAnimating()
-        arrayCollectionViewCellIndicator.isHidden = true
+       setUp()
     }
-    
+        
     func configure(withOperation operation: CellsFilling) {
         switch operation.state {
         case .initiated:
-            arrayCollectionCellLabel.isHidden = false
-            arrayCollectionViewCellIndicator.isHidden = true
-            arrayCollectionCellLabel.text = operation.name
-            arrayCollectionCellLabel.textColor = UIColor.systemBlue
+            CellLabel.isHidden = false
+            CellActivityIndicator.isHidden = true
+            CellLabel.text = operation.name
+            CellLabel.textColor = UIColor.systemBlue
         case .computing:
-            arrayCollectionCellLabel.isHidden = true
-            arrayCollectionViewCellIndicator.isHidden = false
-            arrayCollectionViewCellIndicator.startAnimating()
+            CellLabel.isHidden = true
+            CellActivityIndicator.isHidden = false
+            CellActivityIndicator.startAnimating()
         case .completed:
-            arrayCollectionCellLabel.isHidden = false
-            arrayCollectionViewCellIndicator.stopAnimating()
-            arrayCollectionViewCellIndicator.isHidden = true
-            arrayCollectionCellLabel.text = operation.name.trimmingCharacters(in: .punctuationCharacters) + " - " + (operation.output ?? "?")
-            arrayCollectionCellLabel.textColor = UIColor.black
+            CellLabel.isHidden = false
+            CellActivityIndicator.stopAnimating()
+            CellActivityIndicator.isHidden = true
+            CellLabel.text = operation.name.trimmingCharacters(in: .punctuationCharacters) + " - " + (operation.output ?? "?")
+            CellLabel.textColor = UIColor.black
         }
+    }
+    
+    private func setUp() {
+        CellLabel.isHidden = false
+        CellActivityIndicator.stopAnimating()
+        CellActivityIndicator.isHidden = true
     }
 }

@@ -8,6 +8,8 @@
 import UIKit
 
 class SetViewController: UIViewController {
+    //MARK: - Outlets
+    
     @IBOutlet var firstTextField: UITextField!
     @IBOutlet var secondTextField: UITextField!
     @IBOutlet var matchingLettersLabel: UILabel!
@@ -15,6 +17,8 @@ class SetViewController: UIViewController {
     @IBOutlet var uniqueCharactersButton: UIButton!
     @IBOutlet var uniqueCharactersLabel: UILabel!
     private var model = SetModel()
+    
+    //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +34,8 @@ class SetViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
+    
+    //MARK: - Actions
     
     @IBAction func allMatchingLettersButtonTapped(_ sender: Any) {
         model.matchingLetters()
@@ -49,6 +55,8 @@ class SetViewController: UIViewController {
         uniqueCharactersLabel.isHidden = false
     }
 }
+
+//MARK: - TextField Delegate
 
 extension SetViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

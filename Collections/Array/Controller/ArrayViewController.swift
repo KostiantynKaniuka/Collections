@@ -8,69 +8,91 @@
 import UIKit
 
 class ArrayViewController: UIViewController {
-    @IBOutlet var executionTimeLabel: UILabel!
-    @IBOutlet var arrayActivityIndicator: UIActivityIndicatorView!
-    @IBOutlet var arrayCreationButton: UIButton!
-    @IBOutlet var arrayCollectionView: UICollectionView!
-    
+    //MARK: - Properties
     private let arrayOperations = ArrayCellCreationLogic()
     private let cellIdentifier = "optionCell"
     
+    //MARK: - Outlets
+    
+    @IBOutlet private var executionTimeLabel: UILabel!
+    @IBOutlet private var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet private var arrayCreationButton: UIButton!
+    @IBOutlet private var CollectionView: UICollectionView! {
+        didSet {
+            CollectionView.dataSource = self
+            CollectionView.delegate = self
+        }
+    }
+    
+    //MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        arrayCollectionView.dataSource = self
-        arrayCollectionView.delegate = self
-        arrayCreationButton.isHidden = false
-        arrayActivityIndicator.isHidden = true
-        executionTimeLabel.isHidden = true
-        arrayCollectionView.isHidden = true
-        arrayCreationButton.titleLabel?.adjustsFontSizeToFitWidth = true
-        arrayCreationButton.titleLabel?.minimumScaleFactor = 0.5
-        executionTimeLabel.adjustsFontSizeToFitWidth = true
-        executionTimeLabel.minimumScaleFactor = 0.5
+        setUp()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
-    
-    private func configureWhenArrayCreated(withOutput output: String?) -> Void {
-        self.arrayActivityIndicator.stopAnimating()
-        self.arrayActivityIndicator.isHidden = true
-        self.executionTimeLabel.isHidden = false
-        self.executionTimeLabel.text = "Array creation " + (output ?? "")
-        self.arrayCollectionView.isHidden = false
-    }
+
+    //MARK: - Actions
     
     @IBAction func arrayCreationButtonTapped(_ sender: Any) {
-        self.arrayCreationButton.isHidden = true
-        self.arrayActivityIndicator.isHidden = false
-        self.arrayActivityIndicator.startAnimating()
+        arrayCreationButton.isHidden = true
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
         arrayOperations.create(completion: { [weak self] output in
-            self?.configureWhenArrayCreated(withOutput: output)
+            self?.actionsAfterArrayCreated(withOutput: output)
         } )
+    }
+    
+    //MARK: - Method
+    
+    private func actionsAfterArrayCreated(withOutput output: String?) -> Void {
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
+        executionTimeLabel.isHidden = false
+        executionTimeLabel.text = "Array creation " + (output ?? "")
+        CollectionView.isHidden = false
+    }
+    
+    private func setUp() {
+        arrayCreationButton.isHidden = false
+        activityIndicator.isHidden = true
+        executionTimeLabel.isHidden = true
+        CollectionView.isHidden = true
+        arrayCreationButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        arrayCreationButton.titleLabel?.minimumScaleFactor = 0.5
+        executionTimeLabel.adjustsFontSizeToFitWidth = true
+        executionTimeLabel.minimumScaleFactor = 0.5
     }
 }
 
-extension ArrayViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+//MARK: - CollectionView DataSource
+
+extension ArrayViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return arrayOperations.operationsCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ArrayCollectionViewCell
-        let operation = arrayOperations.operationAtIndex(indexPath.row)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? ArrayCollectionViewCell else { return UICollectionViewCell() }
+        guard let operation = arrayOperations.operationAtIndex(indexPath.row) else { return collectionView.dequeueReusableCell(withReuseIdentifier: "optionCell", for: indexPath)}
         cell.backgroundColor = UIColor.lightGray
         cell.configure(withOperation: operation)
         return cell
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let operation = arrayOperations.operationAtIndex(indexPath.row)
-        arrayOperations.cellPressed(fillingInstance: operation, beginingOfCarculation:   {self.arrayCollectionView.reloadData()}
-                                    , completion:  {self.arrayCollectionView.reloadData()})
-    }
 }
 
+//MARK: - CollectionView Delegate
+
+extension ArrayViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let operation = arrayOperations.operationAtIndex(indexPath.row) else { return }
+        arrayOperations.cellPressed(fillingInstance: operation, beginingOfCarculation: {[weak self] in self?.CollectionView.reloadData()}
+                                    , completion: {self.CollectionView.reloadData()})
+    }
+}

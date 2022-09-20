@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wsX-P5-sKs">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -14,7 +13,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CollectionsViewController" customModule="Collections" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Sbv-UR-ZSB">
@@ -58,7 +57,7 @@
             <objects>
                 <viewController id="LY6-gh-cfg" userLabel="Set View Controller" customClass="SetViewController" customModule="Collections" customModuleProvider="target" propertyAccessControl="none" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="act-Ia-lsU" propertyAccessControl="none">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s4d-R5-wcd" propertyAccessControl="all">
@@ -210,7 +209,7 @@
             <objects>
                 <viewController id="nan-A2-YHO" userLabel="Dictionaty View Controller" customClass="DictionaryViewController" customModule="Collections" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Pg-TR-8Lz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="HmS-os-5Ya">
@@ -321,7 +320,7 @@
             <objects>
                 <viewController id="gYg-P9-zXo" userLabel="Array View Controller" customClass="ArrayViewController" customModule="Collections" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Wd-Co-Kii">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2Sf-h9-N1R">
@@ -369,8 +368,8 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="162" height="163"/>
                                         <connections>
-                                            <outlet property="arrayCollectionCellLabel" destination="8yd-9f-E19" id="qCI-Hy-bYW"/>
-                                            <outlet property="arrayCollectionViewCellIndicator" destination="Dt8-ky-Vov" id="GYH-qb-8Xn"/>
+                                            <outlet property="CellActivityIndicator" destination="Dt8-ky-Vov" id="GYH-qb-8Xn"/>
+                                            <outlet property="CellLabel" destination="8yd-9f-E19" id="qCI-Hy-bYW"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -431,8 +430,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="8EG-kJ-CEw"/>
                     <connections>
-                        <outlet property="arrayActivityIndicator" destination="8WR-3x-Qvj" id="hks-pu-y17"/>
-                        <outlet property="arrayCollectionView" destination="2Sf-h9-N1R" id="T3x-5i-rgE"/>
+                        <outlet property="CollectionView" destination="2Sf-h9-N1R" id="T3x-5i-rgE"/>
+                        <outlet property="activityIndicator" destination="8WR-3x-Qvj" id="hks-pu-y17"/>
                         <outlet property="arrayCreationButton" destination="Bfc-IH-fdw" id="qpL-kf-lgB"/>
                         <outlet property="executionTimeLabel" destination="ttn-Mn-e9F" id="qgG-dl-hbg"/>
                     </connections>

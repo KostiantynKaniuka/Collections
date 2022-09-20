@@ -2,7 +2,7 @@
 //  CollectionViewCell.swift
 //  Collections
 //
-//  Created by Константин Канюка on 18.08.2022.
+//  Created by Kostiantyn Kaniuka on 18.08.2022.
 //
 
 import UIKit
@@ -14,9 +14,7 @@ class DictionaryCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        dictionaryCellLabel.isHidden = false
-        dictionaryActivityIndicator.stopAnimating()
-        dictionaryActivityIndicator.isHidden = true
+        setUp()
     }
     
     func configure(withOperation operation: CellsFilling) {
@@ -38,8 +36,10 @@ class DictionaryCollectionViewCell: UICollectionViewCell {
             dictionaryCellLabel.textColor = UIColor.black
         }
     }
+    
+    private func setUp() {
+        dictionaryCellLabel.isHidden = false
+        dictionaryActivityIndicator.stopAnimating()
+        dictionaryActivityIndicator.isHidden = true
+    }
 }
-
-    
-    
-

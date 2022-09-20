@@ -21,6 +21,7 @@ struct SetModel {
     mutating func notMatchingLetters() {
         notMatchingLettersResult = String(firsTextFieldText.symmetricDifference(secondTextFieldText))
     }
+    
     mutating func uniqueLetters() {
         uniqueLettersResult = String(firsTextFieldText.subtracting(secondTextFieldText))
     }

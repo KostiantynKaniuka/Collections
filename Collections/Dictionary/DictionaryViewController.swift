@@ -92,7 +92,7 @@ extension DictionaryViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let operation = dictionaryOperations.operationAtIndex(indexPath.row)
-        dictionaryOperations.cellPressed(fillingInstance: operation, beginingOfCarculation: { self.dictionaryCollectionView.reloadData() }, completion: { self.dictionaryCollectionView.reloadData() })
+        return  dictionaryOperations.cellPressed(fillingInstance: operation, beginingOfCarculation: { self.dictionaryCollectionView.reloadData() }, completion: { self.dictionaryCollectionView.reloadData() })
     }
 }
 
