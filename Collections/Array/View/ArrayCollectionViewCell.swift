@@ -20,7 +20,7 @@ class ArrayCollectionViewCell: UICollectionViewCell {
     
     func configure(withOperation operation: CellsFilling) {
         switch operation.state {
-        case .initial:
+        case .initiated:
             arrayCollectionCellLabel.isHidden = false
             arrayCollectionViewCellIndicator.isHidden = true
             arrayCollectionCellLabel.text = operation.name
@@ -29,7 +29,7 @@ class ArrayCollectionViewCell: UICollectionViewCell {
             arrayCollectionCellLabel.isHidden = true
             arrayCollectionViewCellIndicator.isHidden = false
             arrayCollectionViewCellIndicator.startAnimating()
-        case .computed:
+        case .completed:
             arrayCollectionCellLabel.isHidden = false
             arrayCollectionViewCellIndicator.stopAnimating()
             arrayCollectionViewCellIndicator.isHidden = true

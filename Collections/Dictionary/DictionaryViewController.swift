@@ -38,7 +38,7 @@ final class DictionaryViewController: UIViewController {
     
     //MARK: - Properties
     
-    private let dictionaryOperations = DictionaryOperations()
+    private let dictionaryOperations = DictionaryCellActionLogic()
     private let dictionaryCellIdentifier = "dictionaryOptionCell"
     
     //MARK: - Lifecycle
@@ -92,7 +92,7 @@ extension DictionaryViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let operation = dictionaryOperations.operationAtIndex(indexPath.row)
-        dictionaryOperations.perform(operation: operation, launchedComputing: { self.dictionaryCollectionView.reloadData() }, completion: { self.dictionaryCollectionView.reloadData() })
+        dictionaryOperations.cellPressed(fillingInstance: operation, beginingOfCarculation: { self.dictionaryCollectionView.reloadData() }, completion: { self.dictionaryCollectionView.reloadData() })
     }
 }
 

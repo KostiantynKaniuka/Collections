@@ -2,21 +2,13 @@
 //  ArrayOperations .swift
 //  Collections
 //
-//  Created by Константин Канюка on 15.08.2022.
+//  Created by Kostiantyn Kaniuka on 15.08.2022.
 //
 
 import Foundation
 
-class ArrayOperations: CollectionOperations {
-    
-    func create(completion: @escaping ((String?) -> Void)) {
-        perform(operation: arrayCreatingOperation, completion: { [weak self] in
-            completion(self?.arrayCreatingOperation.output)
-        })
-    }
-    
-    private var arrayManipulator = ArrayManipulator()
-    
+class ArrayCellCreationLogic: CellPressingAction {
+    private var arrayManipulator = ArrayBuisnessLogic()
     private lazy var arrayCreatingOperation: CellsFilling = {
         CellsFilling(name: "Create Int array with 10_000_000 elements", performBlock: {
             self.arrayManipulator.arrayCreating()
@@ -43,6 +35,11 @@ class ArrayOperations: CollectionOperations {
     lazy var operationsCount: Int = {
         operations.count
     }()
+    
+    func create(completion: @escaping ((String?) -> Void)) {
+        cellPressed(fillingInstance: arrayCreatingOperation, completion: {[weak self] in
+            completion(self?.arrayCreatingOperation.output)})
+    }
     
     func operationAtIndex(_ index: Int) -> CellsFilling {
         operations[index]

@@ -21,7 +21,7 @@ class DictionaryCollectionViewCell: UICollectionViewCell {
     
     func configure(withOperation operation: CellsFilling) {
         switch operation.state {
-        case .initial:
+        case .initiated:
             dictionaryCellLabel.isHidden = false
             dictionaryActivityIndicator.isHidden = true
             dictionaryCellLabel.text = operation.name
@@ -30,7 +30,7 @@ class DictionaryCollectionViewCell: UICollectionViewCell {
             dictionaryCellLabel.isHidden = true
             dictionaryActivityIndicator.isHidden = false
             dictionaryActivityIndicator.startAnimating()
-        case .computed:
+        case .completed:
             dictionaryCellLabel.isHidden = false
             dictionaryActivityIndicator.stopAnimating()
             dictionaryActivityIndicator.isHidden = true

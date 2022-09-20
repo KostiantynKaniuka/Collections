@@ -2,19 +2,19 @@
 //  ArrayViewController.swift
 //  Collections
 //
-//  Created by Константин Канюка on 15.08.2022.
+//  Created by Kostiantyn Kaniuka on 15.08.2022.
 //
 
 import UIKit
 
 class ArrayViewController: UIViewController {
-    private let arrayOperations = ArrayOperations()
-    private let cellIdentifier = "optionCell"
-    
     @IBOutlet var executionTimeLabel: UILabel!
     @IBOutlet var arrayActivityIndicator: UIActivityIndicatorView!
     @IBOutlet var arrayCreationButton: UIButton!
     @IBOutlet var arrayCollectionView: UICollectionView!
+    
+    private let arrayOperations = ArrayCellCreationLogic()
+    private let cellIdentifier = "optionCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,10 +69,8 @@ extension ArrayViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let operation = arrayOperations.operationAtIndex(indexPath.row)
-        arrayOperations.perform(operation: operation,launchedComputing: {
-            self.arrayCollectionView.reloadData()
-        }, completion: {
-            self.arrayCollectionView.reloadData()
-        })
+        arrayOperations.cellPressed(fillingInstance: operation, beginingOfCarculation:   {self.arrayCollectionView.reloadData()}
+                                    , completion:  {self.arrayCollectionView.reloadData()})
     }
 }
+

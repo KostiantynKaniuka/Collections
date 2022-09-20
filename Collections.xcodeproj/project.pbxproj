@@ -24,9 +24,9 @@
 		E7D0FAE628CF3733007EDDCD /* CellsFilling.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0FAE528CF3733007EDDCD /* CellsFilling.swift */; };
 		E7F5F86728AA6D0700E0E1DA /* ArrayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5F86628AA6D0700E0E1DA /* ArrayViewController.swift */; };
 		E7F5F86928AA85DE00E0E1DA /* OperationStateSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5F86828AA85DE00E0E1DA /* OperationStateSettings.swift */; };
-		E7F5F86B28AA863400E0E1DA /* CollectionsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5F86A28AA863400E0E1DA /* CollectionsOperation.swift */; };
-		E7F5F86E28AA8C7700E0E1DA /* ArrayManipulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5F86D28AA8C7700E0E1DA /* ArrayManipulator.swift */; };
-		E7F5F87028AA8F0000E0E1DA /* ArrayOperations .swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5F86F28AA8F0000E0E1DA /* ArrayOperations .swift */; };
+		E7F5F86B28AA863400E0E1DA /* CellPressingAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5F86A28AA863400E0E1DA /* CellPressingAction.swift */; };
+		E7F5F86E28AA8C7700E0E1DA /* ArrayBuisnessLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5F86D28AA8C7700E0E1DA /* ArrayBuisnessLogic.swift */; };
+		E7F5F87028AA8F0000E0E1DA /* ArrayCellActionLogic .swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5F86F28AA8F0000E0E1DA /* ArrayCellActionLogic .swift */; };
 		E7FB84A128AE4D8000BEE459 /* DictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FB84A028AE4D8000BEE459 /* DictionaryViewController.swift */; };
 		E7FB84A428AE80E400BEE459 /* DictionaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FB84A328AE80E400BEE459 /* DictionaryCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -51,9 +51,9 @@
 		E7D0FAE528CF3733007EDDCD /* CellsFilling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellsFilling.swift; sourceTree = "<group>"; };
 		E7F5F86628AA6D0700E0E1DA /* ArrayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayViewController.swift; sourceTree = "<group>"; };
 		E7F5F86828AA85DE00E0E1DA /* OperationStateSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationStateSettings.swift; sourceTree = "<group>"; };
-		E7F5F86A28AA863400E0E1DA /* CollectionsOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsOperation.swift; sourceTree = "<group>"; };
-		E7F5F86D28AA8C7700E0E1DA /* ArrayManipulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayManipulator.swift; sourceTree = "<group>"; };
-		E7F5F86F28AA8F0000E0E1DA /* ArrayOperations .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArrayOperations .swift"; sourceTree = "<group>"; };
+		E7F5F86A28AA863400E0E1DA /* CellPressingAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellPressingAction.swift; sourceTree = "<group>"; };
+		E7F5F86D28AA8C7700E0E1DA /* ArrayBuisnessLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayBuisnessLogic.swift; sourceTree = "<group>"; };
+		E7F5F86F28AA8F0000E0E1DA /* ArrayCellActionLogic .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArrayCellActionLogic .swift"; sourceTree = "<group>"; };
 		E7FB84A028AE4D8000BEE459 /* DictionaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewController.swift; sourceTree = "<group>"; };
 		E7FB84A328AE80E400BEE459 /* DictionaryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,7 +143,7 @@
 			children = (
 				E76F03BD28CF29060050D357 /* NavigationSettings .swift */,
 				E7F5F86828AA85DE00E0E1DA /* OperationStateSettings.swift */,
-				E7F5F86A28AA863400E0E1DA /* CollectionsOperation.swift */,
+				E7F5F86A28AA863400E0E1DA /* CellPressingAction.swift */,
 				E7D0FAE528CF3733007EDDCD /* CellsFilling.swift */,
 			);
 			path = Model;
@@ -168,8 +168,8 @@
 		E7D0FAE928CF3A56007EDDCD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E7F5F86D28AA8C7700E0E1DA /* ArrayManipulator.swift */,
-				E7F5F86F28AA8F0000E0E1DA /* ArrayOperations .swift */,
+				E7F5F86D28AA8C7700E0E1DA /* ArrayBuisnessLogic.swift */,
+				E7F5F86F28AA8F0000E0E1DA /* ArrayCellActionLogic .swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -267,18 +267,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7F5F87028AA8F0000E0E1DA /* ArrayOperations .swift in Sources */,
+				E7F5F87028AA8F0000E0E1DA /* ArrayCellActionLogic .swift in Sources */,
 				E7D0FAE628CF3733007EDDCD /* CellsFilling.swift in Sources */,
 				E7F5F86728AA6D0700E0E1DA /* ArrayViewController.swift in Sources */,
 				E740EF7C28A14DB4009A6339 /* CollectionsViewController.swift in Sources */,
 				E740EF7828A14DB4009A6339 /* AppDelegate.swift in Sources */,
-				E7F5F86E28AA8C7700E0E1DA /* ArrayManipulator.swift in Sources */,
+				E7F5F86E28AA8C7700E0E1DA /* ArrayBuisnessLogic.swift in Sources */,
 				E768F7DF28AA96F00030F96E /* ArrayCollectionViewCell.swift in Sources */,
 				E7606FA928ACF17F00076E16 /* SetViewController.swift in Sources */,
 				E76595E128AE895C006060A7 /* DictionaryOperations .swift in Sources */,
 				E76595E328AE8992006060A7 /* DictionaryManipulator .swift in Sources */,
 				E7FB84A128AE4D8000BEE459 /* DictionaryViewController.swift in Sources */,
-				E7F5F86B28AA863400E0E1DA /* CollectionsOperation.swift in Sources */,
+				E7F5F86B28AA863400E0E1DA /* CellPressingAction.swift in Sources */,
 				E7FB84A428AE80E400BEE459 /* DictionaryCollectionViewCell.swift in Sources */,
 				E740EF7A28A14DB4009A6339 /* SceneDelegate.swift in Sources */,
 				E7606FAC28ACF85A00076E16 /* SetModel.swift in Sources */,

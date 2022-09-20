@@ -8,5 +8,7 @@
  import Foundation
 
 enum OperationStateSettings {
-    case initial, computing, computed
+    case initiated
+    case computing
+    case completed
 }

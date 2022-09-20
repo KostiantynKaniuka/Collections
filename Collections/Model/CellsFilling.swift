@@ -12,7 +12,7 @@ class CellsFilling {
     let perform: () -> Void
     var id: Int = 0
     var output: String?
-    var state: OperationStateSettings = .initial
+    var state: OperationStateSettings = .initiated
     
     init(id: Int = 0, name: String, performBlock: @escaping () -> Void) {
         self.id = id

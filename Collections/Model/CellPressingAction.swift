@@ -7,21 +7,21 @@
 
 import Foundation
 
-class CollectionOperations {
+class CellPressingAction {
     
-    func perform(operation: CellsFilling, launchedComputing: (() -> Void)? = nil, completion: (() -> Void)? = nil) {
-        guard operation.state == .initial else { return }
-        operation.state = .computing
-        launchedComputing?()
+    func cellPressed(fillingInstance: CellsFilling, beginingOfCarculation: (() -> Void)? = nil, completion: (() -> Void)? = nil) {
+        guard fillingInstance.state == .initiated else { return }
+        fillingInstance.state = .computing
+        beginingOfCarculation?()
         DispatchQueue.global().async {
             let startTime = DispatchTime.now()
-            operation.perform()
+            fillingInstance.perform()
             let endTime = DispatchTime.now()
             let duration = Double((endTime.rawValue - startTime.rawValue)) / 1000000000
             let resultString = "time: \(String(duration)) ms."
             DispatchQueue.main.async {
-                operation.state = .computed
-                operation.output = resultString
+                fillingInstance.state = .completed
+                fillingInstance.output = resultString
                 completion?()
             }
         }

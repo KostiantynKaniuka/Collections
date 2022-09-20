@@ -7,31 +7,30 @@
 
 import Foundation
 
-struct ArrayManipulator {
-    
-    var originArray = [Int]()
+class ArrayBuisnessLogic {
+    private var originArray = [Int]()
     
     //MARK: - Default values
-    let oneThousandElements = (0..<1000).map{ _ in Int.random(in: 1 ... 100) }
-    var resultOfInsertionAtTheBeginningOneByOne = 0
-    var resultOfInsertionAtTheBeginningAtOnce = 0
-    var resultOfInsertionInTheMiddleOneByOne = 0
-    var resultOfInsertionInTheMiddleAtOnce = 0
-    var resultOfAppearanceInTheEndOneByOne = 0
-    var resultOfAppearanceInTheEndAtOnce = 0
-    var resultOfRemovingAtTheBeginningOneByOne = 0
-    var resultOfRemovingAtTheBeginningAtOnce = 0
-    var resultOfRemovingInTheMiddleOneByOne = 0
-    var resultOfRemovingInTheMiddleAtOnce = 0
-    var resultOfRemovingAtTheEndOneByOne = 0
-    var resultOfRemovingAtTheEndAtOnce = 0
+    private let oneThousandElements = (0..<1000).map{ _ in Int.random(in: 1 ... 100) }
+    private var resultOfInsertionAtTheBeginningOneByOne = 0
+    private var resultOfInsertionAtTheBeginningAtOnce = 0
+    private var resultOfInsertionInTheMiddleOneByOne = 0
+    private var resultOfInsertionInTheMiddleAtOnce = 0
+    private var resultOfAppearanceInTheEndOneByOne = 0
+    private var resultOfAppearanceInTheEndAtOnce = 0
+    private var resultOfRemovingAtTheBeginningOneByOne = 0
+    private var resultOfRemovingAtTheBeginningAtOnce = 0
+    private var resultOfRemovingInTheMiddleOneByOne = 0
+    private var resultOfRemovingInTheMiddleAtOnce = 0
+    private var resultOfRemovingAtTheEndOneByOne = 0
+    private var resultOfRemovingAtTheEndAtOnce = 0
     
     //MARK: - Manipulations with array
-    mutating func arrayCreating() {
+    func arrayCreating() {
         originArray = (0..<10000000).map{ _ in Int.random(in: 1 ... 100) }
     }
     
-    mutating func insertAtTheBeginningOneByOne() {
+    func insertAtTheBeginningOneByOne() {
         var newArray = originArray
         for i in oneThousandElements {
             newArray.insert(oneThousandElements[i], at: 0)
@@ -39,13 +38,13 @@ struct ArrayManipulator {
         resultOfInsertionAtTheBeginningOneByOne = newArray.count
     }
     
-    mutating func insertAtTheBeginningAtOnce() {
+    func insertAtTheBeginningAtOnce() {
         var newArray = originArray
         newArray.insert(contentsOf: oneThousandElements, at: 0)
         resultOfInsertionAtTheBeginningAtOnce = newArray.count
     }
     
-    mutating func insertInTheMiddleOneByOne() {
+    func insertInTheMiddleOneByOne() {
         var newArray = originArray
         for i in oneThousandElements {
             newArray.insert(oneThousandElements[i], at: ((newArray.count)/2)-1)
@@ -53,13 +52,13 @@ struct ArrayManipulator {
         resultOfInsertionInTheMiddleOneByOne = newArray.count
     }
     
-    mutating func insertInTheMiddleAtOnce() {
+    func insertInTheMiddleAtOnce() {
         var newArray = originArray
         newArray.insert(contentsOf: oneThousandElements, at: ((newArray.count)/2)-1)
         resultOfInsertionInTheMiddleAtOnce = newArray.count
     }
     
-    mutating func appendToTheEndOneByOne() {
+    func appendToTheEndOneByOne() {
         var newArray = originArray
         for i in oneThousandElements {
             newArray.append(oneThousandElements[i])
@@ -67,13 +66,13 @@ struct ArrayManipulator {
         resultOfAppearanceInTheEndOneByOne = newArray.count
     }
     
-    mutating func appendToTheEndAtOnce() {
+    func appendToTheEndAtOnce() {
         var newArray = originArray
         newArray.append(contentsOf: oneThousandElements)
         resultOfAppearanceInTheEndAtOnce = newArray.count
     }
     
-    mutating func removeAtTheBeginningOneByOne() {
+    func removeAtTheBeginningOneByOne() {
         var newArray = originArray
         while newArray.count > 9999000 {
             newArray.removeLast()
@@ -81,13 +80,13 @@ struct ArrayManipulator {
         resultOfRemovingAtTheBeginningOneByOne = newArray.count
     }
     
-    mutating func removeAtTheBeginningAtOnce() {
+    func removeAtTheBeginningAtOnce() {
         var newArray = originArray
         newArray.removeLast(1000)
         resultOfRemovingAtTheBeginningAtOnce = newArray.count
     }
     
-    mutating func removeInTheMiddleOneByOne() {
+    func removeInTheMiddleOneByOne() {
         var newArray = originArray
         while newArray.count > 9999000 {
             newArray.remove(at: ((newArray.count)/2)-1)
@@ -95,13 +94,13 @@ struct ArrayManipulator {
         resultOfRemovingInTheMiddleOneByOne = newArray.count
     }
     
-    mutating func removeInTheMiddleAtOnce() {
+    func removeInTheMiddleAtOnce() {
         var newArray = originArray
         newArray.removeSubrange(((newArray.count)/2)-500...((newArray.count)/2)+499)
         resultOfRemovingInTheMiddleAtOnce = newArray.count
     }
     
-    mutating func removeAtTheEndOneByOne() {
+    func removeAtTheEndOneByOne() {
         var newArray = originArray
         while newArray.count > 9999000 {
             newArray.removeLast()
@@ -109,7 +108,7 @@ struct ArrayManipulator {
         resultOfRemovingAtTheEndOneByOne = newArray.count
     }
     
-    mutating func removeAtTheEndAtOnce() {
+    func removeAtTheEndAtOnce() {
         var newArray = originArray
         newArray.removeLast(1000)
         resultOfRemovingAtTheEndAtOnce = newArray.count

@@ -7,14 +7,14 @@
 
 import Foundation
 
-class DictionaryOperations: CollectionOperations {
+class DictionaryCellActionLogic: CellPressingAction {
     
     func createArray() {
-        perform(operation: contactArrayGeneration)
+        cellPressed(fillingInstance: contactArrayGeneration)
     }
-    
+
     func createDictionary(completion: @escaping ((String?) -> Void)) {
-        perform(operation: contactDictionaryGeneration, completion: { [weak self] in
+        cellPressed(fillingInstance: contactDictionaryGeneration, completion:  { [weak self] in
             completion(self?.contactDictionaryGeneration.output)
         })
     }
