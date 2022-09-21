@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DictionaryCollectionViewCell: UICollectionViewCell {
+final class DictionaryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var dictionaryCellLabel: UILabel!
     @IBOutlet var dictionaryActivityIndicator: UIActivityIndicatorView!

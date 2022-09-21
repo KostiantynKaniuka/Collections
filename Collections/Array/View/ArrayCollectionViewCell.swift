@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ArrayCollectionViewCell: UICollectionViewCell {
+final class ArrayCollectionViewCell: UICollectionViewCell {
     @IBOutlet var CellLabel: UILabel!
     @IBOutlet var CellActivityIndicator: UIActivityIndicatorView!
     

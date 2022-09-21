@@ -7,13 +7,12 @@
 
 import UIKit
 
-class ArrayViewController: UIViewController {
+final class ArrayViewController: UIViewController {
     //MARK: - Properties
     private let arrayOperations = ArrayCellCreationLogic()
     private let cellIdentifier = "optionCell"
     
     //MARK: - Outlets
-    
     @IBOutlet private var executionTimeLabel: UILabel!
     @IBOutlet private var activityIndicator: UIActivityIndicatorView!
     @IBOutlet private var arrayCreationButton: UIButton!
@@ -25,7 +24,6 @@ class ArrayViewController: UIViewController {
     }
     
     //MARK: - Lifecycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
@@ -37,7 +35,6 @@ class ArrayViewController: UIViewController {
     }
 
     //MARK: - Actions
-    
     @IBAction func arrayCreationButtonTapped(_ sender: Any) {
         arrayCreationButton.isHidden = true
         activityIndicator.isHidden = false
@@ -47,8 +44,7 @@ class ArrayViewController: UIViewController {
         } )
     }
     
-    //MARK: - Method
-    
+    //MARK: - Methods
     private func actionsAfterArrayCreated(withOutput output: String?) -> Void {
         activityIndicator.stopAnimating()
         activityIndicator.isHidden = true
@@ -70,7 +66,6 @@ class ArrayViewController: UIViewController {
 }
 
 //MARK: - CollectionView DataSource
-
 extension ArrayViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -87,12 +82,12 @@ extension ArrayViewController: UICollectionViewDataSource {
 }
 
 //MARK: - CollectionView Delegate
-
 extension ArrayViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let operation = arrayOperations.operationAtIndex(indexPath.row) else { return }
-        arrayOperations.cellPressed(fillingInstance: operation, beginingOfCarculation: {[weak self] in self?.CollectionView.reloadData()}
-                                    , completion: {self.CollectionView.reloadData()})
+        arrayOperations.cellPressed(fillingInstance: operation,
+                                    beginingOfCarculation: {[weak self] in self?.CollectionView.reloadData()},
+                                    completion: {[weak self] in self?.CollectionView.reloadData()})
     }
 }

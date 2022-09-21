@@ -7,27 +7,30 @@
 
 import UIKit
 
-class SetViewController: UIViewController {
+final class SetViewController: UIViewController {
     //MARK: - Outlets
     
-    @IBOutlet var firstTextField: UITextField!
-    @IBOutlet var secondTextField: UITextField!
-    @IBOutlet var matchingLettersLabel: UILabel!
-    @IBOutlet var notMatchingLettersLabel: UILabel!
-    @IBOutlet var uniqueCharactersButton: UIButton!
-    @IBOutlet var uniqueCharactersLabel: UILabel!
+    @IBOutlet private var firstTextField: UITextField!{
+        didSet {
+            firstTextField.delegate = self
+        }
+    }
+    @IBOutlet private var secondTextField: UITextField! {
+        didSet {
+            secondTextField.delegate = self
+        }
+    }
+    @IBOutlet private var matchingLettersLabel: UILabel!
+    @IBOutlet private var notMatchingLettersLabel: UILabel!
+    @IBOutlet private var uniqueCharactersButton: UIButton!
+    @IBOutlet private var uniqueCharactersLabel: UILabel!
     private var model = SetModel()
     
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        uniqueCharactersButton.titleLabel?.textAlignment = .center
-        matchingLettersLabel.isHidden = true
-        notMatchingLettersLabel.isHidden = true
-        uniqueCharactersLabel.isHidden = true
-        firstTextField.delegate = self
-        secondTextField.delegate = self
+        setUp()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,6 +56,13 @@ class SetViewController: UIViewController {
         model.uniqueLetters()
         uniqueCharactersLabel.text = model.uniqueLettersResult
         uniqueCharactersLabel.isHidden = false
+    }
+    
+    private func setUp() {
+        uniqueCharactersButton.titleLabel?.textAlignment = .center
+        matchingLettersLabel.isHidden = true
+        notMatchingLettersLabel.isHidden = true
+        uniqueCharactersLabel.isHidden = true
     }
 }
 

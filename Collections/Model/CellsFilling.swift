@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CellsFilling {
+final class CellsFilling {
     let name: String
     let perform: () -> Void
     var id: Int = 0

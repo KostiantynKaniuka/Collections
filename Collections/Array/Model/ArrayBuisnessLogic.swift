@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ArrayBuisnessLogic {
+final class ArrayBuisnessLogic {
     private var originArray = [Int]()
     
     //MARK: - Default values
