@@ -193,10 +193,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="R6m-8e-6Lc" propertyAccessControl="none"/>
                     <connections>
-                        <outlet property="firstTextField" destination="s4d-R5-wcd" id="vfd-KT-RvC"/>
+                        <outlet property="bottomTextField" destination="hc1-uq-86s" id="z0S-7r-X03"/>
                         <outlet property="matchingLettersLabel" destination="Gux-j1-Jx2" id="YqX-Nf-fYc"/>
                         <outlet property="notMatchingLettersLabel" destination="hel-q9-T5G" id="BkM-zm-Vpy"/>
-                        <outlet property="secondTextField" destination="hc1-uq-86s" id="z0S-7r-X03"/>
+                        <outlet property="topTextField" destination="s4d-R5-wcd" id="vfd-KT-RvC"/>
                         <outlet property="uniqueCharactersButton" destination="shj-5w-ETL" id="SGL-OH-rNe"/>
                         <outlet property="uniqueCharactersLabel" destination="1a1-OY-QCw" id="CNx-o1-FZB"/>
                     </connections>

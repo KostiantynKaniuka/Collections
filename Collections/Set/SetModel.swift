@@ -10,19 +10,27 @@ import Foundation
 final class SetModel {
     var firstTextFieldText = Set<Character>()
     var secondTextFieldText = Set<Character>()
-    var matchingLettersResult = ""
-    var notMatchingLettersResult = ""
-    var uniqueLettersResult = ""
     
-    func matchingLetters() {
-        matchingLettersResult = String(firstTextFieldText.intersection(secondTextFieldText))
+    func matchingLetters() -> String {
+        let matchingLettersResult = String(firstTextFieldText.intersection(secondTextFieldText))
+        return matchingLettersResult
     }
     
-    func notMatchingLetters() {
-        notMatchingLettersResult = String(firstTextFieldText.symmetricDifference(secondTextFieldText))
+    func notMatchingLetters() -> String {
+        let notMatchingLettersResult = String(firstTextFieldText.symmetricDifference(secondTextFieldText))
+        return notMatchingLettersResult
     }
     
-    func uniqueLetters() {
-        uniqueLettersResult = String(firstTextFieldText.subtracting(secondTextFieldText))
+    func uniqueLetters() -> String {
+        let uniqueLettersResult = String(firstTextFieldText.subtracting(secondTextFieldText))
+        return uniqueLettersResult
+    }
+    
+    func transformFirstText(topTextField: String) -> Set<Character> {
+     return Set(topTextField)
+    }
+    
+    func transformSecondText(bottomTextField: String) -> Set<Character> {
+       return Set(bottomTextField)
     }
 }

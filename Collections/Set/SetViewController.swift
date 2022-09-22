@@ -2,7 +2,7 @@
 //  SetsViewController.swift
 //  Collections
 //
-//  Created by Константин Канюка on 17.08.2022.
+//  Created by Kostiantyn Kaniuka on 17.08.2022.
 //
 
 import UIKit
@@ -12,14 +12,14 @@ final class SetViewController: UIViewController {
     
     //MARK: - Outlets
     
-    @IBOutlet private var firstTextField: UITextField!{
+    @IBOutlet private var topTextField: UITextField!{
         didSet {
-            firstTextField.delegate = self
+            topTextField.delegate = self
         }
     }
-    @IBOutlet private var secondTextField: UITextField! {
+    @IBOutlet private var bottomTextField: UITextField! {
         didSet {
-            secondTextField.delegate = self
+            bottomTextField.delegate = self
         }
     }
     @IBOutlet private var matchingLettersLabel: UILabel!
@@ -43,20 +43,18 @@ final class SetViewController: UIViewController {
     //MARK: - Actions
     
     @IBAction func allMatchingLettersButtonTapped(_ sender: Any) {
-        model.matchingLetters()
-        matchingLettersLabel.text = model.matchingLettersResult
+        matchingLettersLabel.text = model.matchingLetters()
         matchingLettersLabel.isHidden = false
     }
     
     @IBAction func allCharactersThatDoNotMatchButtonTapped(_ sender: Any) {
-        model.notMatchingLetters()
-        notMatchingLettersLabel.text = model.notMatchingLettersResult
+   
+        notMatchingLettersLabel.text = model.notMatchingLetters()
         notMatchingLettersLabel.isHidden = false
     }
     
     @IBAction func uniqueButtonTapped(_ sender: Any) {
-        model.uniqueLetters()
-        uniqueCharactersLabel.text = model.uniqueLettersResult
+        uniqueCharactersLabel.text = model.uniqueLetters()
         uniqueCharactersLabel.isHidden = false
     }
     
@@ -78,10 +76,10 @@ extension SetViewController: UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField == firstTextField {
-            model.firstTextFieldText = Set(firstTextField.text ?? "")
-        } else if textField == secondTextField {
-            model.secondTextFieldText = Set(secondTextField.text ?? "")
+        if textField == topTextField {
+            model.firstTextFieldText = model.transformFirstText(topTextField: topTextField.text ?? "")
+        } else if textField == bottomTextField {
+            model.secondTextFieldText = model.transformSecondText(bottomTextField: bottomTextField.text ?? "")
         }
         return true
     }

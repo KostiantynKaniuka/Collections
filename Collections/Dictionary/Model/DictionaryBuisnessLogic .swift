@@ -36,7 +36,6 @@ final class DictionaryBuisnessLogic {
     func findTheFirstContactArray() {
         let result = contactArray[0]
         resultOfFindingTheFirstContactArray = result
-        
     }
     
     func findTheFirstContactDictionary() {
