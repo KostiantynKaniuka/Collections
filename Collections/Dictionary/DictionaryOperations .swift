@@ -12,7 +12,7 @@ final class DictionaryCellActionLogic: CellPressingAction {
     func createArray() {
         cellPressed(fillingInstance: contactArrayGeneration)
     }
-    
+
     func createDictionary(completion: @escaping ((String?) -> Void)) {
         cellPressed(
             fillingInstance: contactDictionaryGeneration,
@@ -29,8 +29,8 @@ final class DictionaryCellActionLogic: CellPressingAction {
     lazy var contactDictionaryGeneration:
     CellsFilling = {
         CellsFilling(
-            name: "Generate dictionary array",
-            performBlock: { [weak self] in self?.dictionaryManipulator.contactDictionaryGenetor() }) }()
+        name: "Generate dictionary array",
+        performBlock: { [weak self] in self?.dictionaryManipulator.contactDictionaryGenetor() }) }()
     
     private lazy var operations: [CellsFilling] = {
         let operationsNamesAndBlocks: [Int: (String, () -> Void)] = [
