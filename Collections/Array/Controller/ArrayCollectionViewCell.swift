@@ -13,9 +13,15 @@ final class ArrayCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-       setUp()
+        setUp()
     }
-        
+    
+    func borderConfigure() {
+        backgroundColor = UIColor.lightGray
+        layer.borderColor = UIColor.darkGray.cgColor
+        layer.borderWidth = 0.5
+    }
+    
     func configure(withOperation operation: CellsFilling) {
         switch operation.state {
         case .initiated:
@@ -31,7 +37,7 @@ final class ArrayCollectionViewCell: UICollectionViewCell {
             CellLabel.isHidden = false
             CellActivityIndicator.stopAnimating()
             CellActivityIndicator.isHidden = true
-            CellLabel.text = operation.name.trimmingCharacters(in: .punctuationCharacters) + " - " + (operation.output ?? "?")
+            CellLabel.text =  "Insertion " + (operation.output ?? "?")
             CellLabel.textColor = UIColor.black
         }
     }

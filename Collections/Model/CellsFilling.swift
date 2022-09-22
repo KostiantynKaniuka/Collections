@@ -10,14 +10,11 @@ import Foundation
 final class CellsFilling {
     let name: String
     let perform: () -> Void
-    var id: Int = 0
     var output: String?
     var state: OperationStateSettings = .initiated
     
-    init(id: Int = 0, name: String, performBlock: @escaping () -> Void) {
-        self.id = id
+    init(name: String, performBlock: @escaping () -> Void) {
         self.name = name
         self.perform = performBlock
     }
-  
 }

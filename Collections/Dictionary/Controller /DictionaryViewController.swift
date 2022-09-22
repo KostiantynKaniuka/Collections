@@ -8,6 +8,11 @@
 import UIKit
 
 final class DictionaryViewController: UIViewController {
+    //MARK: - Properties
+    
+    private let dictionaryOperations = DictionaryCellActionLogic()
+    private let dictionaryCellIdentifier = "dictionaryOptionCell"
+    
     //MARK: - Outlets
     
     @IBOutlet private var dictionaryLabel: UILabel! {
@@ -35,12 +40,7 @@ final class DictionaryViewController: UIViewController {
             mediumActivityIndicator.startAnimating()
         }
     }
-    
-    //MARK: - Properties
-    
-    private let dictionaryOperations = DictionaryCellActionLogic()
-    private let dictionaryCellIdentifier = "dictionaryOptionCell"
-    
+
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -54,13 +54,14 @@ final class DictionaryViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationItem.title = "Dictionary"
     }
     
     //MARK: - Method
     
-   private func configureWhenCreated() {
-       mediumActivityIndicator.stopAnimating()
-       mediumActivityIndicator.isHidden = true
+    private func configureWhenCreated() {
+        mediumActivityIndicator.stopAnimating()
+        mediumActivityIndicator.isHidden = true
         arrayLabel.isHidden = false
         dictionaryLabel.isHidden = false
         dictionaryCollectionView.isHidden = false
@@ -77,10 +78,8 @@ extension DictionaryViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: dictionaryCellIdentifier, for: indexPath) as? DictionaryCollectionViewCell else { return UICollectionViewCell() }
+        cell.borderConfigure()
         let operation = dictionaryOperations.operationAtIndex(indexPath.row)
-        cell.backgroundColor = UIColor.lightGray
-        cell.layer.borderColor = UIColor.white.cgColor
-        cell.layer.borderWidth = 1
         cell.configure(withOperation: operation)
         return cell
     }
@@ -104,4 +103,3 @@ extension DictionaryViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: collectionView.frame.width / 2, height: 100)
     }
 }
-

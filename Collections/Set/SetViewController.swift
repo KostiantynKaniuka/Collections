@@ -8,6 +8,8 @@
 import UIKit
 
 final class SetViewController: UIViewController {
+    private var model = SetModel()
+    
     //MARK: - Outlets
     
     @IBOutlet private var firstTextField: UITextField!{
@@ -24,7 +26,6 @@ final class SetViewController: UIViewController {
     @IBOutlet private var notMatchingLettersLabel: UILabel!
     @IBOutlet private var uniqueCharactersButton: UIButton!
     @IBOutlet private var uniqueCharactersLabel: UILabel!
-    private var model = SetModel()
     
     //MARK: - Lifecycle
     
@@ -36,6 +37,7 @@ final class SetViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationItem.title = "Sets"
     }
     
     //MARK: - Actions
@@ -77,7 +79,7 @@ extension SetViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == firstTextField {
-            model.firsTextFieldText = Set(firstTextField.text ?? "")
+            model.firstTextFieldText = Set(firstTextField.text ?? "")
         } else if textField == secondTextField {
             model.secondTextFieldText = Set(secondTextField.text ?? "")
         }

@@ -17,6 +17,12 @@ final class DictionaryCollectionViewCell: UICollectionViewCell {
         setUp()
     }
     
+    func borderConfigure() {
+        backgroundColor = UIColor.lightGray
+        layer.borderColor = UIColor.darkGray.cgColor
+        layer.borderWidth = 0.5
+    }
+    
     func configure(withOperation operation: CellsFilling) {
         switch operation.state {
         case .initiated:

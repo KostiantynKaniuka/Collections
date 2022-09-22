@@ -9,10 +9,12 @@ import UIKit
 
 final class ArrayViewController: UIViewController {
     //MARK: - Properties
+    
     private let arrayOperations = ArrayCellCreationLogic()
     private let cellIdentifier = "optionCell"
     
     //MARK: - Outlets
+    
     @IBOutlet private var executionTimeLabel: UILabel!
     @IBOutlet private var activityIndicator: UIActivityIndicatorView!
     @IBOutlet private var arrayCreationButton: UIButton!
@@ -24,6 +26,7 @@ final class ArrayViewController: UIViewController {
     }
     
     //MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
@@ -32,9 +35,11 @@ final class ArrayViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationItem.title = "Arrays"
     }
-
+    
     //MARK: - Actions
+    
     @IBAction func arrayCreationButtonTapped(_ sender: Any) {
         arrayCreationButton.isHidden = true
         activityIndicator.isHidden = false
@@ -45,6 +50,7 @@ final class ArrayViewController: UIViewController {
     }
     
     //MARK: - Methods
+    
     private func actionsAfterArrayCreated(withOutput output: String?) -> Void {
         activityIndicator.stopAnimating()
         activityIndicator.isHidden = true
@@ -66,6 +72,7 @@ final class ArrayViewController: UIViewController {
 }
 
 //MARK: - CollectionView DataSource
+
 extension ArrayViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -75,13 +82,14 @@ extension ArrayViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? ArrayCollectionViewCell else { return UICollectionViewCell() }
         guard let operation = arrayOperations.operationAtIndex(indexPath.row) else { return collectionView.dequeueReusableCell(withReuseIdentifier: "optionCell", for: indexPath)}
-        cell.backgroundColor = UIColor.lightGray
+        cell.borderConfigure()
         cell.configure(withOperation: operation)
         return cell
     }
 }
 
 //MARK: - CollectionView Delegate
+
 extension ArrayViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -89,5 +97,14 @@ extension ArrayViewController: UICollectionViewDelegate {
         arrayOperations.cellPressed(fillingInstance: operation,
                                     beginingOfCarculation: {[weak self] in self?.CollectionView.reloadData()},
                                     completion: {[weak self] in self?.CollectionView.reloadData()})
+    }
+}
+
+//MARK: - CollectionViewFlowLayuot
+
+extension ArrayViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width / 2, height: 100)
     }
 }

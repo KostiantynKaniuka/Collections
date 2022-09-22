@@ -17,8 +17,8 @@
 		E740EF8428A14DB4009A6339 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E740EF8228A14DB4009A6339 /* LaunchScreen.storyboard */; };
 		E7606FA928ACF17F00076E16 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7606FA828ACF17F00076E16 /* SetViewController.swift */; };
 		E7606FAC28ACF85A00076E16 /* SetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7606FAB28ACF85A00076E16 /* SetModel.swift */; };
-		E76595E128AE895C006060A7 /* DictionaryOperations .swift in Sources */ = {isa = PBXBuildFile; fileRef = E76595E028AE895C006060A7 /* DictionaryOperations .swift */; };
-		E76595E328AE8992006060A7 /* DictionaryManipulator .swift in Sources */ = {isa = PBXBuildFile; fileRef = E76595E228AE8992006060A7 /* DictionaryManipulator .swift */; };
+		E76595E128AE895C006060A7 /* DictionaryCellActionLogic .swift in Sources */ = {isa = PBXBuildFile; fileRef = E76595E028AE895C006060A7 /* DictionaryCellActionLogic .swift */; };
+		E76595E328AE8992006060A7 /* DictionaryBuisnessLogic .swift in Sources */ = {isa = PBXBuildFile; fileRef = E76595E228AE8992006060A7 /* DictionaryBuisnessLogic .swift */; };
 		E768F7DF28AA96F00030F96E /* ArrayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E768F7DE28AA96F00030F96E /* ArrayCollectionViewCell.swift */; };
 		E76F03BE28CF29060050D357 /* NavigationSettings .swift in Sources */ = {isa = PBXBuildFile; fileRef = E76F03BD28CF29060050D357 /* NavigationSettings .swift */; };
 		E7D0FAE628CF3733007EDDCD /* CellsFilling.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D0FAE528CF3733007EDDCD /* CellsFilling.swift */; };
@@ -44,8 +44,8 @@
 		E740EF8528A14DB4009A6339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7606FA828ACF17F00076E16 /* SetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		E7606FAB28ACF85A00076E16 /* SetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetModel.swift; sourceTree = "<group>"; };
-		E76595E028AE895C006060A7 /* DictionaryOperations .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DictionaryOperations .swift"; sourceTree = "<group>"; };
-		E76595E228AE8992006060A7 /* DictionaryManipulator .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DictionaryManipulator .swift"; sourceTree = "<group>"; };
+		E76595E028AE895C006060A7 /* DictionaryCellActionLogic .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DictionaryCellActionLogic .swift"; sourceTree = "<group>"; };
+		E76595E228AE8992006060A7 /* DictionaryBuisnessLogic .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DictionaryBuisnessLogic .swift"; sourceTree = "<group>"; };
 		E768F7DE28AA96F00030F96E /* ArrayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayCollectionViewCell.swift; sourceTree = "<group>"; };
 		E76F03BD28CF29060050D357 /* NavigationSettings .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationSettings .swift"; sourceTree = "<group>"; };
 		E7D0FAE528CF3733007EDDCD /* CellsFilling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellsFilling.swift; sourceTree = "<group>"; };
@@ -149,20 +149,31 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		E7C6295E28DCAC830006B9A6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E76595E028AE895C006060A7 /* DictionaryCellActionLogic .swift */,
+				E76595E228AE8992006060A7 /* DictionaryBuisnessLogic .swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E7C6295F28DCAEDB0006B9A6 /* Controller  */ = {
+			isa = PBXGroup;
+			children = (
+				E7FB84A028AE4D8000BEE459 /* DictionaryViewController.swift */,
+				E7FB84A328AE80E400BEE459 /* DictionaryCollectionViewCell.swift */,
+			);
+			path = "Controller ";
+			sourceTree = "<group>";
+		};
 		E7D0FAE728CF3A2B007EDDCD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				E7F5F86628AA6D0700E0E1DA /* ArrayViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		E7D0FAE828CF3A49007EDDCD /* View */ = {
-			isa = PBXGroup;
-			children = (
 				E768F7DE28AA96F00030F96E /* ArrayCollectionViewCell.swift */,
 			);
-			path = View;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		E7D0FAE928CF3A56007EDDCD /* Model */ = {
@@ -178,7 +189,6 @@
 			isa = PBXGroup;
 			children = (
 				E7D0FAE928CF3A56007EDDCD /* Model */,
-				E7D0FAE828CF3A49007EDDCD /* View */,
 				E7D0FAE728CF3A2B007EDDCD /* Controller */,
 			);
 			path = Array;
@@ -187,10 +197,8 @@
 		E7FB84A228AE5A1D00BEE459 /* Dictionary */ = {
 			isa = PBXGroup;
 			children = (
-				E7FB84A028AE4D8000BEE459 /* DictionaryViewController.swift */,
-				E7FB84A328AE80E400BEE459 /* DictionaryCollectionViewCell.swift */,
-				E76595E028AE895C006060A7 /* DictionaryOperations .swift */,
-				E76595E228AE8992006060A7 /* DictionaryManipulator .swift */,
+				E7C6295E28DCAC830006B9A6 /* Model */,
+				E7C6295F28DCAEDB0006B9A6 /* Controller  */,
 			);
 			path = Dictionary;
 			sourceTree = "<group>";
@@ -275,8 +283,8 @@
 				E7F5F86E28AA8C7700E0E1DA /* ArrayBuisnessLogic.swift in Sources */,
 				E768F7DF28AA96F00030F96E /* ArrayCollectionViewCell.swift in Sources */,
 				E7606FA928ACF17F00076E16 /* SetViewController.swift in Sources */,
-				E76595E128AE895C006060A7 /* DictionaryOperations .swift in Sources */,
-				E76595E328AE8992006060A7 /* DictionaryManipulator .swift in Sources */,
+				E76595E128AE895C006060A7 /* DictionaryCellActionLogic .swift in Sources */,
+				E76595E328AE8992006060A7 /* DictionaryBuisnessLogic .swift in Sources */,
 				E7FB84A128AE4D8000BEE459 /* DictionaryViewController.swift in Sources */,
 				E7F5F86B28AA863400E0E1DA /* CellPressingAction.swift in Sources */,
 				E7FB84A428AE80E400BEE459 /* DictionaryCollectionViewCell.swift in Sources */,
