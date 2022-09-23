@@ -8,11 +8,12 @@
 import Foundation
 
 final class DictionaryCellActionLogic: CellPressingAction {
-    private var dictionaryManipulator = DictionaryBuisnessLogic()
     lazy var operationsCount: Int = {
         operations.count
     }()
     
+    private var dictionaryManipulator = DictionaryBuisnessLogic()
+
     private lazy var contactArrayGeneration: CellsFilling = {
         CellsFilling(
             name: "Generate contact array",
